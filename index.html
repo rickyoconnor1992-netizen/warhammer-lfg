@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warhammer 3 LFG Hub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Topbar -->
+<div class="topbar">
+  <div>
+    <button class="btn primary" id="adminToggle">Admin</button>
+  </div>
+</div>
+
+<!-- Banner -->
+<div class="banner">
+  <div class="banner-content">
+    <h1>Warhammer 3 LFG Hub</h1>
+    <p>Find players, form groups, and dominate the battlefield!</p>
+  </div>
+</div>
+
+<!-- Main container -->
+<div class="container">
+
+  <!-- Left Column: Post Form & Filters -->
+  <div class="left-col">
+    <div class="card">
+      <h3>Create LFG Post</h3>
+      <form id="postForm">
+        <input type="text" id="username" placeholder="Username*" required>
+        <input type="text" id="contact" placeholder="Discord Name*" required>
+        <select id="mode" required>
+          <option value="">Select Mode*</option>
+          <option value="Immortal Empires">Immortal Empires</option>
+          <option value="Multiplayer">Multiplayer</option>
+        </select>
+        <select id="faction" required>
+          <option value="">Select Faction*</option>
+          <option value="Empire">Empire</option>
+          <option value="Bretonnia">Bretonnia</option>
+          <option value="Kislev">Kislev</option>
+          <option value="Vampire Counts">Vampire Counts</option>
+          <option value="Tomb Kings">Tomb Kings</option>
+          <option value="Khorne">Khorne</option>
+          <option value="Nurgle">Nurgle</option>
+          <option value="Slaanesh">Slaanesh</option>
+          <option value="Tzeentch">Daemons of Tzeentch</option>
+          <option value="Skaven">Skaven</option>
+          <option value="Ogre Kingdoms">Ogre Kingdoms</option>
+          <option value="Lizardmen">Lizardmen</option>
+          <option value="Dark Elves">Dark Elves</option>
+          <option value="High Elves">High Elves</option>
+          <option value="Wood Elves">Wood Elves</option>
+          <option value="Dwarfs">Dwarfs</option>
+          <option value="Chaos Dwarfs">Chaos Dwarfs</option>
+          <option value="Norsca">Norsca</option>
+          <option value="Other">Other</option>
+        </select>
+        <select id="experience" required>
+          <option value="">Select Experience Level*</option>
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advanced</option>
+          <option value="Expert">Expert</option>
+        </select>
+        <input type="text" id="timezone" placeholder="Timezone">
+        <textarea id="message" placeholder="Message"></textarea>
+        <div class="actions">
+          <input type="number" id="expiryDays" value="1" min="1" max="30"> Days
+          <button type="submit" class="btn primary glow">Post LFG</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="card filters">
+      <h3>Filters</h3>
+      <div class="filter-row">
+        <select id="filterMode">
+          <option value="">Mode</option>
+          <option value="Immortal Empires">Immortal Empires</option>
+          <option value="Multiplayer">Multiplayer</option>
+        </select>
+        <select id="filterFaction">
+          <option value="">Faction</option>
+          <option value="Empire">Empire</option>
+          <option value="Bretonnia">Bretonnia</option>
+          <option value="Kislev">Kislev</option>
+          <option value="Vampire Counts">Vampire Counts</option>
+          <option value="Tomb Kings">Tomb Kings</option>
+          <option value="Khorne">Khorne</option>
+          <option value="Nurgle">Nurgle</option>
+          <option value="Slaanesh">Slaanesh</option>
+          <option value="Tzeentch">Daemons of Tzeentch</option>
+          <option value="Skaven">Skaven</option>
+          <option value="Ogre Kingdoms">Ogre Kingdoms</option>
+          <option value="Lizardmen">Lizardmen</option>
+          <option value="Dark Elves">Dark Elves</option>
+          <option value="High Elves">High Elves</option>
+          <option value="Wood Elves">Wood Elves</option>
+          <option value="Dwarfs">Dwarfs</option>
+          <option value="Chaos Dwarfs">Chaos Dwarfs</option>
+          <option value="Norsca">Norsca</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <input type="text" id="filterTZ" placeholder="Timezone">
+      <input type="text" id="searchText" placeholder="Search">
+      <div class="actions">
+        <button id="applyFilters" class="btn primary">Apply</button>
+        <button id="clearFilters" class="btn ghost">Clear</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Column: Posts -->
+  <div class="right-col">
+    <div class="posts-grid" id="postsList"></div>
+    <div id="status" class="hint" style="margin-top:12px">Loading...</div>
+  </div>
+</div>
+
+<!-- Admin Panel -->
+<div class="card" id="adminCard" style="display:none;max-width:400px;margin:20px auto;">
+  <h3>Admin Controls</h3>
+  <input type="password" id="adminPass" placeholder="Enter Admin Pass">
+  <div class="actions">
+    <button id="authenticate" class="btn primary">Authenticate</button>
+  </div>
+  <div class="actions" style="margin-top:10px;">
+    <button id="clearExpired" class="btn ghost">Clear Expired Posts</button>
+    <button id="clearAll" class="btn danger">Clear All Posts</button>
+  </div>
+</div>
+
+<footer class="site-footer">
+  &copy; 2025 Warhammer 3 LFG Hub
+</footer>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>
